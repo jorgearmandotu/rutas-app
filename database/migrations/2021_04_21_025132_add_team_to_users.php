@@ -15,7 +15,7 @@ class AddTeamToUsers extends Migration
     {
         Schema::table('users', function (Blueprint $table) {
             //
-            $table->boolean('team')->after('email');
+            $table->integer('team')->after('email');
         });
     }
 

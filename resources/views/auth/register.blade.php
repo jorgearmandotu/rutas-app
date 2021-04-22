@@ -46,10 +46,10 @@
             </div>
 
             <div class="block mt-4">
-                <label for="Administrador" class="inline-flex items-center">
-                    <input id="team" type="checkbox" class="rounded border-gray-300 text-indigo-600 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50" name="team">
-                    <span class="ml-2 text-sm text-gray-600">{{ __('Administrador') }}</span>
-                </label>
+                <x-form-group name="team" label="Rol en la empresa" inline>
+                    <x-form-radio name="team" value="1" label="Administrador" />
+                    <x-form-radio name="team" value="2" label="Comercial" />
+                </x-form-group>
             </div>
 
             <div class="flex items-center justify-end mt-4">

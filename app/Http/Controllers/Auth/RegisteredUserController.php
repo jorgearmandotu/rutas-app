@@ -30,6 +30,15 @@ class RegisteredUserController extends Controller
      *
      * @throws \Illuminate\Validation\ValidationException
      */
+
+     function rol(Request $request){
+        if($request->has('administrador')){
+            return 1;
+        }elseif($request->has('comercial')){
+            return 2;
+        }else return 0;
+    }
+
     public function store(Request $request)
     {
         $request->validate([
@@ -42,7 +51,8 @@ class RegisteredUserController extends Controller
             'name' => $request->name,
             'email' => $request->email,
             'password' => Hash::make($request->password),
-            'team' => ( $request->team == 'on') ? 1 : 0,
+            'team' => $request->team
+            //'team'=> $request->has('administrador'){}
         ]);
 
         event(new Registered($user));
@@ -51,4 +61,5 @@ class RegisteredUserController extends Controller
 
         return redirect(RouteServiceProvider::HOME);
     }
+    
 }
