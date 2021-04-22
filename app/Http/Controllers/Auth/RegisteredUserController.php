@@ -31,13 +31,6 @@ class RegisteredUserController extends Controller
      * @throws \Illuminate\Validation\ValidationException
      */
 
-     function rol(Request $request){
-        if($request->has('administrador')){
-            return 1;
-        }elseif($request->has('comercial')){
-            return 2;
-        }else return 0;
-    }
 
     public function store(Request $request)
     {
@@ -51,7 +44,8 @@ class RegisteredUserController extends Controller
             'name' => $request->name,
             'email' => $request->email,
             'password' => Hash::make($request->password),
-            'team' => $request->team
+            'team' => $request->team,
+            'team_id' => $request->team,
             //'team'=> $request->has('administrador'){}
         ]);
 
