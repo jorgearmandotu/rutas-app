@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateTeamTable extends Migration
+class CreateActionTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,13 +13,14 @@ class CreateTeamTable extends Migration
      */
     public function up()
     {
-        //tabla de rol o team a desempeñar
-        Schema::create('team', function (Blueprint $table) {
+        Schema::create('action', function (Blueprint $table) {
             $table->id();
             $table->string('name');
+            $table->foreignId('module_id')->constrained()
+            ->onUpdate('cascade')
+            ->onDelete('cascade');
             $table->timestamps();
         });
-        
     }
 
     /**
@@ -29,7 +30,6 @@ class CreateTeamTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('team');
-        
+        Schema::dropIfExists('action');
     }
 }

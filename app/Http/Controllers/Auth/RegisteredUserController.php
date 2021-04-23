@@ -38,13 +38,13 @@ class RegisteredUserController extends Controller
             'name' => 'required|string|max:255',
             'email' => 'required|string|email|max:255|unique:users',
             'password' => 'required|string|confirmed|min:8',
+            'team' => 'required|string|max:1'
         ]);
 
         $user = User::create([
             'name' => $request->name,
             'email' => $request->email,
             'password' => Hash::make($request->password),
-            'team' => $request->team,
             'team_id' => $request->team,
             //'team'=> $request->has('administrador'){}
         ]);
