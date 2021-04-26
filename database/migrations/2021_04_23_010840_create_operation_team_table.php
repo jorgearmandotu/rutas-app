@@ -14,11 +14,15 @@ class CreateOperationTeamTable extends Migration
     public function up()
     {
         Schema::create('operation_team', function (Blueprint $table) {
+            $table->engine = 'InnoDB';
             $table->id();
-            $table->foreignId('team_id')->constrained()
+           // $table->bigInteger('team_id')->unsigned();
+            $table->foreignId('team_id')->references('id')->on('team')
+            //$table->foreignId('team_id')->constrained()
             ->onUpdate('cascade')
             ->onDelete('cascade');
-            $table->foreignId('action_id')->constrained()
+           // $table->foreignId('action_id')->constrained()
+           $table->foreignId('action_id')->references('id')->on('action')
             ->onUpdate('cascade')
             ->onDelete('cascade');
             $table->timestamps();

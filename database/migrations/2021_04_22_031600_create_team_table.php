@@ -15,6 +15,7 @@ class CreateTeamTable extends Migration
     {
         //tabla de rol o team a desempeñar
         Schema::create('team', function (Blueprint $table) {
+            $table->engine = 'InnoDB';
             $table->id();
             $table->string('name');
             $table->timestamps();
