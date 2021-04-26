@@ -15,9 +15,7 @@ class CreateForeignTeamAUser extends Migration
     public function up()
     {
         Schema::table('users', function (Blueprint $table) {
-            //$table->bigInteger('team_id')->unsigned()->after('email');
             $table->foreignId('team_id')->after('email')->references('id')->on('team')
-           // $table->foreignId('team_id')->after('email')->constrained()
             ->onUpdate('cascade')
             ->onDelete('cascade');
         });

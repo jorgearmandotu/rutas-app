@@ -25,4 +25,8 @@ Route::get('/register', function () {
     return view('register');
 });
 
+Route::get('/register_user', function(){
+    return view('auth.register_users');
+});
+
 require __DIR__.'/auth.php';

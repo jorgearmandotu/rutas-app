@@ -18,9 +18,6 @@ class CreateActionTable extends Migration
             $table->id();
             $table->string('name');
             $table->bigInteger('module_id')->unsigned();
-           // $table->foreignId('module_id')->constrained()
-            //->onUpdate('cascade')
-            //->onDelete('cascade');
             $table->foreign('module_id')->references('id')->on('module')
             ->onUpdate('cascade')
             ->onDelete('cascade');
