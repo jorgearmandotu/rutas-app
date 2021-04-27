@@ -1,16 +1,12 @@
 <?php
 
-namespace App\Http\Controllers\Auth;
-
-use App\Http\Controllers\Controller;
+namespace App\Http\Controllers;
 use App\Models\User;
-use App\Providers\RouteServiceProvider;
-use Illuminate\Auth\Events\Registered;
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 
-class RegisteredUserController extends Controller
+use Illuminate\Http\Request;
+
+class register_User extends Controller
 {
     /**
      * Display the registration view.
@@ -22,7 +18,7 @@ class RegisteredUserController extends Controller
         return view('auth.register');
     }
 
-    /**
+     /**
      * Handle an incoming registration request.
      *
      * @param  \Illuminate\Http\Request  $request
@@ -50,11 +46,10 @@ class RegisteredUserController extends Controller
             'team_id' => $request->team,
         ]);
 
-        event(new Registered($user));
+        //event(new Registered($user));
 
         //Auth::login($user);
 
         //return redirect(RouteServiceProvider::HOME);
     }
-    
 }

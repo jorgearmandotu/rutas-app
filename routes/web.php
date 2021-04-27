@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Auth\RegisteredUserController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -21,12 +22,16 @@ Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth'])->name('dashboard');
 
-Route::get('/register', function () {
+/*Route::get('/register', function () {
     return view('register');
-});
+});*/
 
+//Route::post('/register_user', array('as' => '/register_user', 'RegisteredUserController@store'));
+Route::post('/register_user', ['as' => '/register_user', 'uses' => 'register_User@store']);
 Route::get('/register_user', function(){
     return view('auth.register_users');
-});
+})->middleware('admin');
+
+//Route::post('/register_user');
 
 require __DIR__.'/auth.php';

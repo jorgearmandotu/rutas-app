@@ -95,9 +95,10 @@ class data_initiales extends Seeder
         //agregar datos de usuario administrador
         DB::table('users')->insert([
             'name' => 'admin_app',
-            'email' => 'email@admin.com',
+            'email' => 'admin@email.com',
             'team_id' => 1,
             'password' => '$2y$10$EMN3h3GHb6C4DOnduszghu.22KIFX3GPn.1mxRFFPyf4c012O4vae',//1-8
+            'user' => 'admin',
         ]);
     }
 }

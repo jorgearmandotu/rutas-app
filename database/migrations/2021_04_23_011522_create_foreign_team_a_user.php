@@ -29,7 +29,7 @@ class CreateForeignTeamAUser extends Migration
     public function down()
     {
         Schema::table('users', function (Blueprint $table) {
-            $table->dropForeign('team_id');
+            $table->dropConstrainedForeignId('team_id');
         });
     }
 }

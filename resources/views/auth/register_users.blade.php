@@ -9,7 +9,7 @@
         <!-- Validation Errors -->
         <x-auth-validation-errors class="mb-4" :errors="$errors" />
 
-        <form method="POST" action="{{ route('register') }}">
+        <form method="POST" action="{{ route('/register_user') }}">
             @csrf
 
             <!-- Name -->
@@ -19,11 +19,17 @@
                 <x-input id="name" class="block mt-1 w-full" type="text" name="name" :value="old('name')" required autofocus />
             </div>
 
+            <!-- Email Address -->
+            <div class="mt-4">
+                <x-label for="email" :value="__('Email')" />
+
+                <x-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required />
+            </div>
+
             <!-- usuario -->
             <div class="mt-4">
                 <x-label for="usuario" :value="__('usuario')" />
-
-                <x-input id="usuario" class="block mt-1 w-full" type="text" name="email" :value="old('email')" required />
+                <x-input id="usuario" class="block mt-1 w-full" type="text" name="usuario" :value="old('email')" required />
             </div>
 
             <!-- Password -->
@@ -45,7 +51,12 @@
                                 name="password_confirmation" required />
             </div>
 
-            <div class="block mt-4">
+            <div class="mt-4">
+                <x-label for="zona" :value="_('zone')" />
+
+            </div>
+
+            <div  class="block mt-4">
                 <x-form-group name="team" label="Rol en la empresa" inline>
                     <x-form-radio name="team" value="1" label="Administrador" />
                     <x-form-radio name="team" value="2" label="Comercial" />

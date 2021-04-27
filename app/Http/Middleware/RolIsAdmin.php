@@ -16,8 +16,10 @@ class RolIsAdmin
      */
     public function handle(Request $request, Closure $next)
     {
-        if(auth()-> check() && auth() -> user()->id_team==1 )
+        if(! auth()->check())
+            return redirect('/login');
+        if(auth()-> check() && auth() -> user()->team_id ==1 )
             return $next($request);
-        return redirect('/login');
+        return redirect('/dashboard');
     }
 }
