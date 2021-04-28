@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Auth\RegisteredUserController;
+use App\Http\Controllers\register_User;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -15,7 +16,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('/auth/login');
 });
 
 Route::get('/dashboard', function () {
@@ -27,7 +28,8 @@ Route::get('/dashboard', function () {
 });*/
 
 //Route::post('/register_user', array('as' => '/register_user', 'RegisteredUserController@store'));
-Route::post('/register_user', ['as' => '/register_user', 'uses' => 'register_User@store']);
+//Route::post('/register_user', ['as' => '/register_user', 'uses' => 'register_User@read']);
+Route::post('/register_user', [register_User::class, 'store'])->middleware('admin');
 Route::get('/register_user', function(){
     return view('auth.register_users');
 })->middleware('admin');

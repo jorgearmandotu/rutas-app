@@ -1,7 +1,7 @@
 <x-guest-layout>
     <x-auth-card>
         <x-slot name="logo">
-            <a href="/">
+            <a href="/dashboard">
                 <x-application-logo class="w-20 h-20 fill-current text-gray-500" />
             </a>
         </x-slot>
@@ -9,7 +9,7 @@
         <!-- Validation Errors -->
         <x-auth-validation-errors class="mb-4" :errors="$errors" />
 
-        <form method="POST" action="{{ route('/register_user') }}">
+        <form method="POST" action="">
             @csrf
 
             <!-- Name -->
@@ -28,8 +28,8 @@
 
             <!-- usuario -->
             <div class="mt-4">
-                <x-label for="usuario" :value="__('usuario')" />
-                <x-input id="usuario" class="block mt-1 w-full" type="text" name="usuario" :value="old('email')" required />
+                <x-label for="user" :value="__('user')" />
+                <x-input id="user" class="block mt-1 w-full" type="text" name="user" :value="old('user')" required />
             </div>
 
             <!-- Password -->

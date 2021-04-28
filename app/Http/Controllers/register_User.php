@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 use App\Models\User;
 use Illuminate\Support\Facades\Hash;
-
+use Illuminate\Auth\Events\Registered;
 use Illuminate\Http\Request;
 
 class register_User extends Controller
@@ -27,6 +27,9 @@ class register_User extends Controller
      * @throws \Illuminate\Validation\ValidationException
      */
 
+     public function read(Request $request){
+         return $request->all();
+     }
 
     public function store(Request $request)
     {
@@ -41,15 +44,15 @@ class register_User extends Controller
         $user = User::create([
             'name' => $request->name,
             'email' => $request->email,
-            'usuario' => $request->usuario,
+            'user' => $request->user,
             'password' => Hash::make($request->password),
             'team_id' => $request->team,
         ]);
 
-        //event(new Registered($user));
+        event(new Registered($user));
 
         //Auth::login($user);
 
-        //return redirect(RouteServiceProvider::HOME);
+        return redirect('/dashboard');
     }
 }
