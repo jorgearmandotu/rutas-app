@@ -32,7 +32,7 @@ Route::get('/dashboard', function () {
 Route::post('/register_user', [register_User::class, 'store'])->middleware('admin');
 Route::get('/register_user', function(){
     return view('auth.register_users');
-})->middleware('admin');
+})->middleware('admin')->name('register_user');
 
 //Route::post('/register_user');
 
