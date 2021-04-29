@@ -73,5 +73,11 @@
                 </x-button>
             </div>
         </form>
+        <br>
+        <a href="/dashboard">
+            <x-button class="ml4">
+                {{_('home')}}
+            </x-button>
+        </a>
     </x-auth-card>
 </x-guest-layout>

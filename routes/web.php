@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Auth\RegisteredUserController;
 use App\Http\Controllers\register_User;
+use App\Http\Controllers\RouterController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -34,6 +35,6 @@ Route::get('/register_user', function(){
     return view('auth.register_users');
 })->middleware('admin')->name('register_user');
 
-//Route::post('/register_user');
-
+Route::get('/router', [RouterController::class, 'create'])->middleware('auth');
+Route::post('/router',[RouterController::class, 'enrutar'])->middleware('auth');
 require __DIR__.'/auth.php';
