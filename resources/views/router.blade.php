@@ -16,6 +16,10 @@
       <input type="hidden" name="estado" value="en_ruta">
       <input type="text" name="cliente" id="">
       
+      @foreach($client  as $key)
+            <li>{{$key}}</li>
+      @endforeach
+
       <x-button class="ml-4">
         {{ __('Iniciar ruta') }}
     </x-button>

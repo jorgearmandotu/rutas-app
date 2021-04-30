@@ -10,7 +10,8 @@
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 bg-white border-b border-gray-200">
                     You're logged in!<br>
-                    <a href="/register_user">Registrar nuevos usarios</a>
+                    <a href="/register_user">Registrar nuevos usarios</a><br>
+                    <a href="/router">ingresar a rutas</a>
                 </div>
             </div>
         </div>
